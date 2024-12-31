@@ -52,6 +52,7 @@ configure_i3:
 	@echo -n "\e[38;5;46m>>\033[0m Configuring i3...\n"
 	@sudo apt install unclutter
 	@cp configs/i3/config $(HOME)/.config/i3/config
+	@DISPLAY=:0 i3 restart
 	@echo -n "\e[38;5;46m  >\033[0m Done configuring i3\n\n"
 
 system_configuration:
