@@ -26,6 +26,7 @@ install_scrcpy:
 					gcc git pkg-config meson ninja-build libsdl2-dev \
 					libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
 					libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
+	@rm -fr $(HOME)/scrcpy
 	@git clone https://github.com/Genymobile/scrcpy $(HOME)/scrcpy
 	@cd $(HOME)/scrcpy ; ./install_release.sh
 	@sudo usermod -aG plugdev $(USER)
@@ -33,6 +34,7 @@ install_scrcpy:
 
 install_wiringop:
 	@echo -n "\e[38;5;46m>>\033[0m Installing WiringOP...\n"
+	@rm -fr $(HOME)/wiringOP
 	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1 $(HOME)/wiringOP
 	@cd $(HOME)/wiringOP ; sudo ./build clean
 	@cd $(HOME)/wiringOP ; sudo ./build
