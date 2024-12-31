@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Stop screen mirror
+pkill scrcpy
+
+# Reset phone screen resolution
+adb shell wm density reset
+adb shell settings put system font_scale 1.0
+adb shell wm size reset

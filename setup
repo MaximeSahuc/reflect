@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Install requirements
+
+
+# Build GPIO reader
+
+
+# Create GPIO reader Service
+
+
+# Configure i3
+
+
+# System configuration
+    # Prevent sleep
+    # Auto login
+
+
+# Copy scripts
+
+
+# Ask for reboot

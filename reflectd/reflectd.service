@@ -1,0 +1,18 @@
+[Unit]
+Description=Reflect daemon
+After=network.target
+
+[Service]
+ExecStart=/opt/reflect/reflectd
+Restart=always
+User=nobody
+Group=nogroup
+WorkingDirectory=/tmp
+StandardOutput=syslog
+StandardError=syslog
+TimeoutSec=30
+KillMode=process
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

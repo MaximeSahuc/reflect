@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+export DISPLAY=:0
+
+# Set phone display resolution
+adb shell wm density 200
+adb shell settings put system font_scale 1.3
+adb shell wm size 720x1280
+
+sleep 0.5
+
+# Start screen mirror
+pkill scrcpy
+scrcpy --video-codec=h264 --max-size=1280 --max-fps=40 --no-audio --orientation=flip180 --disable-screensaver --no-control --video-bit-rate=2M --fullscreen
