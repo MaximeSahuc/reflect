@@ -44,6 +44,7 @@ build_reflectd:
 	@echo "Reflectd built successfully, creating Reflectd service..."
 	@sudo cp reflectd/reflectd /opt/reflect/reflectd
 	@sudo cp reflectd/reflectd.service /etc/systemd/system/
+	@sudo cp configs/sudoers/meg /etc/sudoers.d/meg
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
 	@sudo systemctl start reflectd.service

@@ -1,0 +1,1 @@
+meg ALL=(ALL) NOPASSWD: /opt/reflect/reflectd
