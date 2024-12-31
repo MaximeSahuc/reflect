@@ -86,6 +86,12 @@ update:
 	@echo -n "\n\n\n"
 	make install
 
+clean:
+	@echo -n "\e[38;5;46m>>\033[0m Cleaning...\n"
+	@git reset --hard
+	@git clean -fd
+	@echo -n "\e[38;5;46m  >\033[0m Done cleaning\n\n"
+
 help:
 	@echo "Available targets:"
 	@echo "  install    - Install Reflect"
