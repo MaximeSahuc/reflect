@@ -110,7 +110,7 @@ int main()
     if (geteuid() != 0)
     {
         fprintf(stderr, "\n Error: Program should be run as root.\n");
-        exit(1);
+        exit(3);
     }
 
     if (wiringPiSetup() == -1) {
