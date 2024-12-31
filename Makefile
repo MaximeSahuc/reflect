@@ -21,32 +21,27 @@ check_sudo:
 
 install_scrcpy:
 	@echo -n "\e[38;5;46m>>\033[0m Installing Scrcpy...\n"
-	@cd $(HOME)
 	@sudo apt update
 	@sudo apt -yy install ffmpeg libsdl2-2.0-0 adb wget \
 					gcc git pkg-config meson ninja-build libsdl2-dev \
 					libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
 					libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
-	@git clone https://github.com/Genymobile/scrcpy
-	@cd scrcpy
-	@./install_release.sh
+	@git clone https://github.com/Genymobile/scrcpy $(HOME)/scrcpy
+	@$(HOME)/scrcpy/install_release.sh
 	@sudo usermod -aG plugdev $(USER)
 	@echo -n "\e[38;5;46m>>\033[0m Done installing Scrcpy\n"
 
 install_wiringop:
 	@echo -n "\e[38;5;46m>>\033[0m Installing WiringOP...\n"
-	@cd $(HOME)
-	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1
-	@cd wiringOP
-	@sudo ./build clean
-	@sudo ./build
+	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1 $(HOME)/wiringOP
+	@sudo $(HOME)/wiringOP/build clean
+	@sudo $(HOME)/wiringOP/build
 
 build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
-	@cd $(REPO_DIR)/reflectd
-	@./build
+	@cd $(REPO_DIR)/reflectd ; ./build
 	@echo "Reflectd built successfully, creating Reflectd service..."
-	@cp reflectd.service /etc/systemd/system/
+	@cp reflectd/reflectd.service /etc/systemd/system/
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
 	@sudo systemctl start mydaemon.service
