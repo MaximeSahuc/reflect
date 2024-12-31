@@ -42,6 +42,7 @@ build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
 	@cd reflectd ; ./build
 	@echo "Reflectd built successfully, creating Reflectd service..."
+	@sudo cp reflectd/reflectd /opt/reflect/reflectd
 	@sudo cp reflectd/reflectd.service /etc/systemd/system/
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
