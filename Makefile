@@ -1,5 +1,4 @@
 INSTALL_DIR = /opt/reflect
-REPO_DIR = $(pwd)
 
 # Install Reflect
 install: banner check_sudo install_scrcpy install_wiringop build_reflectd configure_i3 system_configuration install_scripts ask_for_reboot
@@ -30,7 +29,7 @@ install_scrcpy:
 	@git clone https://github.com/Genymobile/scrcpy --depth=1 $(HOME)/scrcpy
 	@cd $(HOME)/scrcpy ; ./install_release.sh
 	@sudo usermod -aG plugdev $(USER)
-	@echo -n "\e[38;5;46m>>\033[0m Done installing Scrcpy\n"
+	@echo -n "\e[38;5;46m  >\033[0m Done installing Scrcpy\n"
 
 install_wiringop:
 	@echo -n "\e[38;5;46m>>\033[0m Installing WiringOP...\n"
@@ -38,6 +37,7 @@ install_wiringop:
 	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1 $(HOME)/wiringOP
 	@cd $(HOME)/wiringOP ; sudo ./build clean
 	@cd $(HOME)/wiringOP ; sudo ./build
+	@echo -n "\e[38;5;46m  >\033[0m Done installing WiringOP\n"
 
 build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
@@ -47,23 +47,24 @@ build_reflectd:
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
 	@sudo systemctl start reflectd.service
-	@echo -n "\e[38;5;46m>>\033[0m Done installing Reflectd\n"
+	@echo -n "\e[38;5;46m  >\033[0m Done installing Reflectd\n"
 
 configure_i3:
 	@echo -n "\e[38;5;46m>>\033[0m Configuring i3...\n"
 	@sudo apt install unclutter
-	@cp $(REPO_DIR)/configs/i3/config $(HOME)/.config/i3/config
-	@echo -n "\e[38;5;46m>>\033[0m Done configuring i3\n"
+	@cp configs/i3/config $(HOME)/.config/i3/config
+	@echo -n "\e[38;5;46m  >\033[0m Done configuring i3\n"
 
 system_configuration:
 	@echo -n "\e[38;5;46m>>\033[0m Setup Auto Login...\n"
-	@sudo cp $(REPO_DIR)/configs/lightdm/autologin.conf /etc/lightdm/lightdm.conf.d/10-autologin.conf
-	@echo -n "\e[38;5;46m>>\033[0m Done setup auto login\n"
+	@sudo cp configs/lightdm/autologin.conf /etc/lightdm/lightdm.conf.d/10-autologin.conf
+	@echo -n "\e[38;5;46m  >\033[0m Done setup auto login\n"
 
 install_scripts:
 	@echo -n "\e[38;5;46m>>\033[0m Installing scripts...\n"
 	@mkdir -p $(INSTALL_DIR)
-	@sudo cp $(REPO_DIR)/scripts/* $(INSTALL_DIR)
+	@sudo cp scripts/* $(INSTALL_DIR)
+	@echo -n "\e[38;5;46m  >\033[0m Done installing scripts\n"
 
 ask_for_reboot:
 	@echo -n "\e[38;5;128mAll done!\033[0m...\n"
