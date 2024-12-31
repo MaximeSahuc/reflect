@@ -1,1 +1,2 @@
 meg ALL=(ALL) NOPASSWD: /opt/reflect/reflectd
+Defaults    env_keep += "ALL"
