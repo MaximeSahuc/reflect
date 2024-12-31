@@ -75,6 +75,8 @@ ask_for_reboot:
 
 update:
 	@echo -n "\e[38;5;46m>>\033[0m Updating Reflect...\n"
+	@git reset --hard
+	@git clean -fd
 	@git pull
 	@echo -n "\n\n\n"
 	make install
