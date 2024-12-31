@@ -115,7 +115,7 @@ int main()
 
     if (wiringPiSetup() == -1) {
         printf("WiringPi setup failed!\n");
-        exit(1);
+        exit(2);
     }
 
     setup();
