@@ -3,9 +3,9 @@ Description=Reflect daemon
 After=network.target
 
 [Service]
-ExecStart=/opt/reflect/reflectd
+ExecStart=sudo -E /opt/reflect/reflectd
 Restart=always
-User=nobody
+User=meg
 Group=nogroup
 WorkingDirectory=/tmp
 StandardOutput=syslog
