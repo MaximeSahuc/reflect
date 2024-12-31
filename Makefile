@@ -27,15 +27,15 @@ install_scrcpy:
 					libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
 					libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
 	@git clone https://github.com/Genymobile/scrcpy $(HOME)/scrcpy
-	@$(HOME)/scrcpy/install_release.sh
+	@cd $(HOME)/scrcpy ; ./install_release.sh
 	@sudo usermod -aG plugdev $(USER)
 	@echo -n "\e[38;5;46m>>\033[0m Done installing Scrcpy\n"
 
 install_wiringop:
 	@echo -n "\e[38;5;46m>>\033[0m Installing WiringOP...\n"
 	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1 $(HOME)/wiringOP
-	@sudo $(HOME)/wiringOP/build clean
-	@sudo $(HOME)/wiringOP/build
+	@cd $(HOME)/wiringOP ; sudo ./build clean
+	@cd $(HOME)/wiringOP ; sudo ./build
 
 build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
@@ -76,6 +76,7 @@ ask_for_reboot:
 update:
 	@echo -n "\e[38;5;46m>>\033[0m Updating Reflect...\n"
 	@git pull
+	@echo -n "\n\n\n"
 	make install
 
 help:
