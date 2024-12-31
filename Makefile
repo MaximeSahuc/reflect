@@ -27,7 +27,7 @@ install_scrcpy:
 					libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
 					libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
 	@rm -fr $(HOME)/scrcpy
-	@git clone https://github.com/Genymobile/scrcpy $(HOME)/scrcpy
+	@git clone https://github.com/Genymobile/scrcpy --depth=1 $(HOME)/scrcpy
 	@cd $(HOME)/scrcpy ; ./install_release.sh
 	@sudo usermod -aG plugdev $(USER)
 	@echo -n "\e[38;5;46m>>\033[0m Done installing Scrcpy\n"
@@ -41,7 +41,7 @@ install_wiringop:
 
 build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
-	@cd $(REPO_DIR)/reflectd ; ./build
+	@cd reflectd ; ./build
 	@echo "Reflectd built successfully, creating Reflectd service..."
 	@cp reflectd/reflectd.service /etc/systemd/system/
 	@sudo systemctl daemon-reload
