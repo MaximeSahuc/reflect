@@ -76,6 +76,7 @@ ask_for_reboot:
 	fi
 
 update:
+	@clear
 	@echo -n "\e[38;5;46m>>\033[0m Updating Reflect...\n"
 	@git reset --hard
 	@git clean -fd
