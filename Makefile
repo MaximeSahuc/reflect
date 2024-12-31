@@ -2,7 +2,6 @@ INSTALL_DIR = /opt/reflect
 
 # Install Reflect
 install: banner check_sudo install_scrcpy install_wiringop build_reflectd configure_i3 system_configuration install_scripts ask_for_reboot
-	@echo "Installation completed successfully."
 
 banner:
 	@echo -n "\n\n\e[38;5;63m    ██████╗ ███████╗███████╗██╗     ███████╗ ██████╗████████╗    \033[0m\n"
@@ -68,8 +67,8 @@ install_scripts:
 
 ask_for_reboot:
 	@echo -n "\e[38;5;128mAll done!\033[0m\n"
-	@read -p "Do you want to reboot the system? (y/n): " answer
-	@if [ "$(answer)" = "y" ] || [ "$(answer)" = "Y" ]; then \
+	@read -p "Do you want to reboot the system? (y/n): " answer; \
+	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
 		echo "Rebooting now..."; \
 		sudo reboot; \
 	else \
