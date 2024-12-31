@@ -46,7 +46,7 @@ build_reflectd:
 	@sudo cp reflectd/reflectd.service /etc/systemd/system/
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
-	@sudo systemctl start mydaemon.service
+	@sudo systemctl start reflectd.service
 	@echo -n "\e[38;5;46m>>\033[0m Done installing Reflectd\n"
 
 configure_i3:
