@@ -16,14 +16,14 @@ banner:
 
 # Check if sudo privileges are required
 check_sudo:
-	@echo -n "\e[38;5;214m  Sudo access required. Please enter your password.\033[0m\n"
+	@echo -n "\e[38;5;214m  Sudo access required.\033[0m\n"
 	@sudo -v || exit 1
 
 install_scrcpy:
 	@echo -n "\e[38;5;46m>>\033[0m Installing Scrcpy...\n"
-	@cd
+	@cd $(HOME)
 	@sudo apt update
-	@sudo apt install ffmpeg libsdl2-2.0-0 adb wget \
+	@sudo apt -yy install ffmpeg libsdl2-2.0-0 adb wget \
 					gcc git pkg-config meson ninja-build libsdl2-dev \
 					libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
 					libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
@@ -35,7 +35,7 @@ install_scrcpy:
 
 install_wiringop:
 	@echo -n "\e[38;5;46m>>\033[0m Installing WiringOP...\n"
-	@cd
+	@cd $(HOME)
 	@git clone https://github.com/orangepi-xunlong/wiringOP.git -b next --depth=1
 	@cd wiringOP
 	@sudo ./build clean
