@@ -67,13 +67,13 @@ install_scripts:
 	@echo -n "\e[38;5;46m  >\033[0m Done installing scripts\n\n"
 
 ask_for_reboot:
-	@echo -n "\e[38;5;128mAll done!\033[0m...\n"
+	@echo -n "\e[38;5;128mAll done!\033[0m\n"
 	@read -p "Do you want to reboot the system? (y/n): " answer
-	@if [[ "$(answer)" == "y" || "$(answer)" == "Y" ]]; then
-		echo "Rebooting now..."
-		sudo reboot
-	else
-		echo "Reboot canceled."
+	@if [ "$(answer)" = "y" ] || [ "$(answer)" = "Y" ]; then \
+		echo "Rebooting now..."; \
+		sudo reboot; \
+	else \
+		echo "Reboot canceled."; \
 	fi
 
 update:
