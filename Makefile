@@ -43,7 +43,7 @@ build_reflectd:
 	@echo -n "\e[38;5;46m>>\033[0m Building Reflectd...\n"
 	@cd reflectd ; ./build
 	@echo "Reflectd built successfully, creating Reflectd service..."
-	@cp reflectd/reflectd.service /etc/systemd/system/
+	@sudo cp reflectd/reflectd.service /etc/systemd/system/
 	@sudo systemctl daemon-reload
 	@sudo systemctl enable reflectd.service
 	@sudo systemctl start mydaemon.service
@@ -57,13 +57,13 @@ configure_i3:
 
 system_configuration:
 	@echo -n "\e[38;5;46m>>\033[0m Setup Auto Login...\n"
-	@cp $(REPO_DIR)/configs/lightdm/autologin.conf /etc/lightdm/lightdm.conf.d/10-autologin.conf
+	@sudo cp $(REPO_DIR)/configs/lightdm/autologin.conf /etc/lightdm/lightdm.conf.d/10-autologin.conf
 	@echo -n "\e[38;5;46m>>\033[0m Done setup auto login\n"
 
 install_scripts:
 	@echo -n "\e[38;5;46m>>\033[0m Installing scripts...\n"
 	@mkdir -p $(INSTALL_DIR)
-	@cp $(REPO_DIR)/scripts/* $(INSTALL_DIR)
+	@sudo cp $(REPO_DIR)/scripts/* $(INSTALL_DIR)
 
 ask_for_reboot:
 	@echo -n "\e[38;5;128mAll done!\033[0m...\n"
