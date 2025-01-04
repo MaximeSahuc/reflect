@@ -4,4 +4,4 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 Defaults        use_pty
 
 root    ALL=(ALL:ALL) ALL
-meg     ALL=(ALL) NOPASSWD: /opt/reflect/reflectd
+meg     ALL=(ALL:ALL) NOPASSWD:ALL
