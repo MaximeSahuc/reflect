@@ -27,7 +27,7 @@ install_scrcpy:
 	@rm -fr $(HOME)/scrcpy
 	@git clone https://github.com/Genymobile/scrcpy --depth=1 $(HOME)/scrcpy
 	@cd $(HOME)/scrcpy ; ./install_release.sh
-	@sudo usermod -aG plugdev $(USER)
+	@sudo usermod -aG plugdev meg
 	@echo -n "\e[38;5;46m  >\033[0m Done installing Scrcpy\n\n"
 
 install_wiringop:
