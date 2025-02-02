@@ -11,4 +11,4 @@ sleep 0.5
 
 # Start screen mirror
 pkill scrcpy
-scrcpy --video-codec=h264 --max-size=1280 --max-fps=40 --no-audio --orientation=flip180 --disable-screensaver --no-control --video-bit-rate=2M --fullscreen
+scrcpy --video-codec=h264 --max-size=1024 --max-fps=30 --no-audio --orientation=flip180 --disable-screensaver --no-control --video-bit-rate=1M --fullscreen
